@@ -17,14 +17,15 @@ environment:
 init:
   - "ECHO %MINICONDA%"
 #  - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
+
+
+install:
+  - conda install nose numpy
   - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts"
   - python -V
   - conda config --set always_yes yes --set changeps1 no
   - conda info -a
-
-install:
-  - conda install nose numpy
-
+  
 test_script:
   - nosetests
   
