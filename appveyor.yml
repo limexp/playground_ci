@@ -15,13 +15,16 @@ matrix:
   fast_finish: true 
 
 init:
-  - "ECHO %MINICONDA%\\python -V"
-
-install:
+  - "ECHO %MINICONDA%"
   - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
+  - python -V
   - conda config --set always_yes yes --set changeps1 no
   - conda info -a
 
+install:
+  - conda install nose
 
 test_script:
   - nosetests
+  
+  
