@@ -6,7 +6,7 @@ environment:
 
 init:
   - "ECHO %PYTHON%"
-  - "set PATH=C:\msys64\mingw64\bin;C:\msys64\usr\bin;%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+  - set PATH=C:\\msys64\\mingw64\\bin;C:\\msys64\\usr\\bin;%PYTHON%;%PYTHON%\\Scripts;%PATH%
   - python -V
   - pip install numpy scipy pandas matplotlib nose scikit-learn graphviz python-graphviz
 
