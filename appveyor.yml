@@ -2,21 +2,22 @@ build: false
 
 environment:
   matrix:
-    - MINICONDA: C:\Miniconda
-    - MINICONDA: C:\Miniconda-x64
     - MINICONDA: C:\Miniconda3
     - MINICONDA: C:\Miniconda3-x64
     - MINICONDA: C:\Miniconda35
     - MINICONDA: C:\Miniconda35-x64
     - MINICONDA: C:\Miniconda36
     - MINICONDA: C:\Miniconda36-x64  
+    - MINICONDA: C:\Miniconda
+    - MINICONDA: C:\Miniconda-x64
 
-matrix:
-  fast_finish: true 
+#matrix:
+#  fast_finish: true 
 
 init:
   - "ECHO %MINICONDA%"
-  - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
+#  - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
+  - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts"
   - python -V
   - conda config --set always_yes yes --set changeps1 no
   - conda info -a
