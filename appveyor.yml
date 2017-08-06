@@ -2,29 +2,21 @@ build: false
 
 environment:
   matrix:
-    - MINICONDA: C:\Miniconda3
-    - MINICONDA: C:\Miniconda3-x64
-    - MINICONDA: C:\Miniconda35
-    - MINICONDA: C:\Miniconda35-x64
-    - MINICONDA: C:\Miniconda36
-    - MINICONDA: C:\Miniconda36-x64  
-    - MINICONDA: C:\Miniconda
-    - MINICONDA: C:\Miniconda-x64
+    - PYTHON: C:\Python34
+    - PYTHON: C:\Python34-x64
 
 #matrix:
 #  fast_finish: true 
 
 init:
-  - "ECHO %MINICONDA%"
+  - "ECHO %PYTHON%"
 #  - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
 
 
 install:
-  - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts"
+  - "set PATH=%PYTHON%;%PYTHON%\\Scripts"
   - python -V
-  - conda config --set always_yes yes --set changeps1 no
-  - conda info -a
-  - conda install nose numpy
+  - pip install nose numpy
   
 test_script:
   - nosetests
