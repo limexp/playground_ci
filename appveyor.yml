@@ -20,11 +20,11 @@ init:
 
 
 install:
-  - conda install nose numpy
   - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts"
   - python -V
   - conda config --set always_yes yes --set changeps1 no
   - conda info -a
+  - conda install nose numpy
   
 test_script:
   - nosetests
