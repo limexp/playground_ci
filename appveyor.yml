@@ -8,8 +8,8 @@ init:
   - "ECHO %PYTHON%"
   - set PATH=C:\\msys64\\mingw64\\bin;C:\\msys64\\usr\\bin;%PYTHON%;%PYTHON%\\Scripts;%PATH%
   - python -V
-  - "%PYTHON%\\Scripts\\python -V"
   - where python  
+  - "%PYTHON%\\python -V"
   - where pip
   - python -m pip install --upgrade pip  
   - pip install numpy scipy pandas matplotlib nose scikit-learn graphviz
