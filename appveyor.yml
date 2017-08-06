@@ -1,24 +1,30 @@
-build: false
+image: Visual Studio 2013
+
+#build: false
 
 environment:
   matrix:
-    - PYTHON: C:\Python34
-    - PYTHON: C:\Python34-x64
+#    - PYTHON: C:\Python36
+    - PYTHON: C:\Python36-x64
 
-#matrix:
-#  fast_finish: true 
 
 init:
-  - "ECHO %PYTHON%"
-#  - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%PATH%"
+#  - "ECHO %PYTHON%"
+#  - "set PATH=%PYTHON%;%PYTHON%\\Scripts;%PATH%"
+#  - python -V
+#  - pip install nose numpy
 
 
 install:
-  - "set PATH=%PYTHON%;%PYTHON%\\Scripts"
-  - python -V
-  - pip install nose numpy
-  
+  - "git clone --recursive https://github.com/dmlc/xgboost"
+  - "cd xgboost"
+  - git submodule init
+  - git submodule update
+  - alias make='mingw32-make'
+  - cp make/mingw64.mk config.mk
+  - make -j4
+#  - "%PYTHON%/Scripts/pip.exe install nose"
+#  - "%PYTHON%/Scripts/pip.exe install coverage"
+
 test_script:
-  - nosetests
-  
-  
+  - echo 'OK'
