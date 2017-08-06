@@ -6,13 +6,8 @@ environment:
 
 init:
   - "ECHO %PYTHON%"
+  - set OLD_PATH=%PATH%
   - set PATH=C:\\msys64\\mingw64\\bin;C:\\msys64\\usr\\bin;%PYTHON%;%PYTHON%\\Scripts;%PATH%
-  - python -V
-  - where python  
-  - "%PYTHON%\\python -V"
-  - where pip
-  - python -m pip install --upgrade pip  
-  - pip install numpy scipy pandas matplotlib nose scikit-learn graphviz
 
 install:
   - "git clone --recursive https://github.com/dmlc/xgboost"
@@ -24,6 +19,13 @@ install:
   - cmake .. -G"Unix Makefiles"
   - make -j2  
   - cd %APPVEYOR_BUILD_FOLDER%\xgboost\python-package
+  - set PATH=%PYTHON%;%PYTHON%\\Scripts;%OLD_PATH%
+  - python -V
+  - where python  
+#  - "%PYTHON%\\python -V"
+  - where pip
+  - python -m pip install --upgrade pip  
+  - pip install numpy scipy pandas matplotlib nose scikit-learn graphviz
   - python setup.py install  
 
 test_script:
