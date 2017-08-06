@@ -22,7 +22,7 @@ init:
   - conda info -a
 
 install:
-  - conda install nose
+  - conda install nose numpy
 
 test_script:
   - nosetests
