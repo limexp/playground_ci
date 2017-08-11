@@ -10,23 +10,27 @@ init:
   - set PATH=C:\\msys64\\mingw64\\bin;C:\\msys64\\usr\\bin;%PYTHON%;%PYTHON%\\Scripts;%PATH%
 
 install:
-  - "git clone --recursive https://github.com/dmlc/xgboost"
-  - "cd xgboost"
-  - git submodule init
-  - git submodule update
-  - mkdir build_mingw
-  - cd build_mingw
-  - cmake .. -G"Unix Makefiles"
-  - make -j2  
-  - cd %APPVEYOR_BUILD_FOLDER%\xgboost\python-package
-  - set PATH=%PYTHON%;%PYTHON%\\Scripts;%OLD_PATH%
-  - python -V
-  - where python  
+#  - "git clone --recursive https://github.com/dmlc/xgboost"
+#  - "cd xgboost"
+#  - git submodule init
+#  - git submodule update
+#  - mkdir build_mingw
+#  - cd build_mingw
+#  - cmake .. -G"Unix Makefiles"
+#  - make -j2  
+#  - cd %APPVEYOR_BUILD_FOLDER%\xgboost\python-package
+#  - set PATH=%PYTHON%;%PYTHON%\\Scripts;%OLD_PATH%
+#  - python -V
+#  - where python  
 #  - "%PYTHON%\\python -V"
-  - where pip
-  - python -m pip install --upgrade pip  
-  - pip install numpy scipy pandas matplotlib nose scikit-learn graphviz
-  - python setup.py install  
+#  - where pip
+#  - python -m pip install --upgrade pip  
+#  - pip install numpy scipy pandas matplotlib nose scikit-learn graphviz
+#  - python setup.py install  
+  - echo 'APPVEYOR_REPO_TAG = %APPVEYOR_REPO_TAG%'
+  - echo 'APPVEYOR_REPO_TAG_NAME = %APPVEYOR_REPO_TAG_NAME%'
+  - echo 'APPVEYOR_REPO_BRANCH = %APPVEYOR_REPO_BRANCH%'
+  - echo 'APPVEYOR_BUILD_VERSION = %APPVEYOR_BUILD_VERSION%'
 
 test_script:
   - echo 'OK'
