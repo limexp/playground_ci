@@ -41,7 +41,7 @@ install:
   - ps: if ($env:PYTHON) {
       Write-Host "Line 1"
       Write-Host "Line 2"
-    }
+      }
 
 test_script:
   - echo 'OK'
