@@ -39,8 +39,8 @@ install:
   - echo 'APPVEYOR_REPO_BRANCH = %APPVEYOR_REPO_BRANCH%'
   - echo 'APPVEYOR_BUILD_VERSION = %APPVEYOR_BUILD_VERSION%'
   - ps: if ($env:PYTHON) {
-      Write-Host "Line 1"
-      Write-Host "Line 2"
+      Write-Host "Line 1";
+      Write-Host "Line 2";
       }
 
 test_script:
