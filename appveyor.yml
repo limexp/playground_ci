@@ -12,11 +12,11 @@ init:
   - set PATH=C:\\msys64\\mingw64\\bin;C:\\msys64\\usr\\bin;%PYTHON%;%PYTHON%\\Scripts;%PATH%
 
 install:
-   - ps: Write-Host $env:PYTHON
-   - ps: $test = $env:PYTHON.Replace('3', "9")
-   - ps: Write-Host $test
-   - ps: $test2 = $env:PYTHON2.Replace('3', "9")
-   - ps: Write-Host $test2
+  - ps: Write-Host $env:PYTHON
+  - ps: $test = $env:PYTHON.Replace('3', "9")
+  - ps: Write-Host $test
+  - ps: $test2 = $env:PYTHON2.Replace('3', "9")
+  - ps: Write-Host $test2
 #  - "git clone --recursive https://github.com/dmlc/xgboost"
 #  - "cd xgboost"
 #  - git submodule init
