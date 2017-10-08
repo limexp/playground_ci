@@ -12,6 +12,11 @@ init:
   - set PATH=C:\\msys64\\mingw64\\bin;C:\\msys64\\usr\\bin;%PYTHON%;%PYTHON%\\Scripts;%PATH%
 
 install:
+   - ps: Write-Host $env:PYTHON
+   - ps: $test = $env:PYTHON.Replace('3', "9")
+   - ps: Write-Host $test
+   - ps: $test2 = $env:PYTHON2.Replace('3', "9")
+   - ps: Write-Host $test2
 #  - "git clone --recursive https://github.com/dmlc/xgboost"
 #  - "cd xgboost"
 #  - git submodule init
@@ -33,6 +38,10 @@ install:
   - echo 'APPVEYOR_REPO_TAG_NAME = %APPVEYOR_REPO_TAG_NAME%'
   - echo 'APPVEYOR_REPO_BRANCH = %APPVEYOR_REPO_BRANCH%'
   - echo 'APPVEYOR_BUILD_VERSION = %APPVEYOR_BUILD_VERSION%'
+  - ps: if ($env:PYTHON) {
+      Write-Host "Line 1"
+      Write-Host "Line 2"
+    }
 
 test_script:
   - echo 'OK'
