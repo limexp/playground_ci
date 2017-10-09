@@ -1,0 +1,65 @@
+#------------------------------------------------------------------------------
+# TravisCI configuration file for solidity.
+#
+# The documentation for solidity is hosted at:
+#
+# http://solidity.readthedocs.org
+#
+# ------------------------------------------------------------------------------
+# This file is part of solidity.
+#
+# solidity is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# solidity is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with solidity.  If not, see <http://www.gnu.org/licenses/>
+#
+# (c) 2016-2017 solidity contributors.
+#------------------------------------------------------------------------------
+
+language: cpp
+
+env:
+    global:
+        - ENCRYPTION_LABEL="6d4541b72666"
+        - SOLC_BUILD_TYPE=RelWithDebInfo
+        - SOLC_DOCS=Off
+        - SOLC_EMSCRIPTEN=Off
+        - SOLC_INSTALL_DEPS_TRAVIS=On
+        - SOLC_RELEASE=On
+        - SOLC_TESTS=On
+        - SOLC_STOREBYTECODE=Off
+        - SOLC_DOCKER=Off
+
+matrix:
+    include:
+        - os: linux
+          dist: trusty
+          sudo: required
+          compiler: gcc
+          env:
+              - ZIP_SUFFIX=ubuntu-trusty
+              - SOLC_STOREBYTECODE=On
+
+git:
+    depth: 2
+
+cache:
+    ccache: true
+    directories:
+        - boost_1_57_0
+        - $HOME/.local
+
+install:
+    - test $SOLC_INSTALL_DEPS_TRAVIS != On || (scripts/install_deps.sh)
+
+script:
+    - cat 'SCRIPT'
+
