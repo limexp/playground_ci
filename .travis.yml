@@ -58,6 +58,7 @@ cache:
         - $HOME/.local
 
 install:
+    - pwd
     - test $SOLC_INSTALL_DEPS_TRAVIS != On || (scripts/install_deps.sh)
 
 script:
