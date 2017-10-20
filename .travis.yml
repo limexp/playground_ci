@@ -58,9 +58,10 @@ cache:
         - $HOME/.local
 
 install:
-    - pwd
-    - test $SOLC_INSTALL_DEPS_TRAVIS != On || (scripts/install_deps.sh)
+    - test (exit 123)
+    - test $? == 0 || XXX=10
+    - echo $XXX
 
 script:
-    - cat 'SCRIPT'
+    - echo 'SCRIPT'
 
