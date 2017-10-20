@@ -58,10 +58,9 @@ cache:
         - $HOME/.local
 
 install:
+    - echo 'INSTALL'
+
+script:
     - test 1 == 2
     - test $? == 0 || XXX=10
     - echo $XXX
-
-script:
-    - echo 'SCRIPT'
-
